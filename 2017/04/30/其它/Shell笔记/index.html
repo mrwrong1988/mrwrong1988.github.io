@@ -1,0 +1,486 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Shell笔记 | Mrwrong1988的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mrwrong1988">
+    
+
+    
+    <meta name="description" content="变量使用$variable, ${variable_a} 输出到屏幕echoecho -e 对字符串中转义字符进行替换 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。  for循环for element in collectiondo   echo “element is $element”done 只读变量readonly variable 删除变量unset var">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell笔记">
+<meta property="og:url" content="http://mrwrong1988.github.io/2017/04/30/其它/Shell笔记/index.html">
+<meta property="og:site_name" content="Mrwrong1988的博客">
+<meta property="og:description" content="变量使用$variable, ${variable_a} 输出到屏幕echoecho -e 对字符串中转义字符进行替换 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。  for循环for element in collectiondo   echo “element is $element”done 只读变量readonly variable 删除变量unset var">
+<meta property="og:updated_time" content="2017-04-30T04:06:33.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell笔记">
+<meta name="twitter:description" content="变量使用$variable, ${variable_a} 输出到屏幕echoecho -e 对字符串中转义字符进行替换 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。  for循环for element in collectiondo   echo “element is $element”done 只读变量readonly variable 删除变量unset var">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Mrwrong1988的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Mrwrong1988的博客" title="Mrwrong1988的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Mrwrong1988的博客">Mrwrong1988的博客</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:mrwrong1988.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/30/其它/Shell笔记/" title="Shell笔记" itemprop="url">Shell笔记</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mrwrong1988" target="_blank" itemprop="author">Mrwrong1988</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-30T02:44:41.000Z" itemprop="datePublished"> Published 2017-04-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>变量使用<br>$variable, ${variable_a}</p>
+<p>输出到屏幕<br>echo<br>echo -e 对字符串中转义字符进行替换<br> -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。 </p>
+<p>for循环<br>for element in collection<br>do<br>   echo “element is $element”<br>done</p>
+<p>只读变量<br>readonly variable</p>
+<p>删除变量<br>unset variable</p>
+<p> 变量类型<br>运行shell时，会同时存在三种变量：<br>1) 局部变量<br>局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。<br>2) 环境变量<br>所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。<br>3) shell变量<br>shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</p>
+<p>———–特殊变量——<br>$0     当前脚本的文件名<br>$n     传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。<br>$#     传递给脚本或函数的参数个数。<br>$<em>     传递给脚本或函数的所有参数。<br>$@     传递给脚本或函数的所有参数。被双引号(“ “)包含时，与 $</em> 稍有不同，下面将会讲到。<br>$?     上个命令的退出状态，或函数的返回值。<br>$$     当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。<br>$echo $$  #shell脚本当前进程pid</p>
+<p>命令替换<br><code>command</code><br>DATE=<code>date</code><br>echo “Date is $DATE”</p>
+<p>变量替换<br>${var}     变量本来的值<br>${var:-word}     如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。<br>${var:=word}     如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。<br>${var:?message}     如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。<br>若此替换出现在Shell脚本中，那么脚本将停止运行。<br>${var:+word}     如果变量 var 被定义，那么返回 word，但不改变 var 的值。</p>
+<p>运算符：<br>val=<code>expr 2 + 2</code>   #空格是必须的<br>echo “Total value : $val”<br>val=<code>expr $a + $b</code><br>val=<code>expr $a - $b</code><br>val=<code>expr $a \* $b</code><br>val=<code>expr $a / $b</code><br>val=<code>expr $a % $b</code><br>if [ $a == $b ]<br>if [ $a != $b ]</p>
+<p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。<br>-eq     检测两个数是否相等，相等返回 true。     [ $a -eq $b ] 返回 true。<br>-ne     检测两个数是否相等，不相等返回 true。     [ $a -ne $b ] 返回 true。<br>-gt     检测左边的数是否大于右边的，如果是，则返回 true。     [ $a -gt $b ] 返回 false。<br>-lt     检测左边的数是否小于右边的，如果是，则返回 true。     [ $a -lt $b ] 返回 true。<br>-ge     检测左边的数是否大等于右边的，如果是，则返回 true。     [ $a -ge $b ] 返回 false。<br>-le     检测左边的数是否小于等于右边的，如果是，则返回 true。     [ $a -le $b ] 返回 true。</p>
+<p>布尔运算符<br>!     非运算，表达式为 true 则返回 false，否则返回 true。     [ ! false ] 返回 true。<br>-o     或运算，有一个表达式为 true 则返回 true。     [ $a -lt 20 -o $b -gt 100 ] 返回 true。<br>-a     与运算，两个表达式都为 true 才返回 true。     [ $a -lt 20 -a $b -gt 100 ] 返回 false。</p>
+<p>字符串运算符<br>=     检测两个字符串是否相等，相等返回 true。     [ $a = $b ] 返回 false。<br>!=     检测两个字符串是否相等，不相等返回 true。     [ $a != $b ] 返回 true。<br>-z     检测字符串长度是否为0，为0返回 true。     [ -z $a ] 返回 false。<br>-n     检测字符串长度是否为0，不为0返回 true。     [ -n $a ] 返回 true。<br>str     检测字符串是否为空，不为空返回 true。     [ $a ] 返回 true。</p>
+<p>文件测试运算符<br>-b file     检测文件是否是块设备文件，如果是，则返回 true。     [ -b $file ] 返回 false。<br>-c file     检测文件是否是字符设备文件，如果是，则返回 true。     [ -c $file ] 返回 false。<br>-d file     检测文件是否是目录，如果是，则返回 true。     [ -d $file ] 返回 false。<br>-f file     检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。     [ -f $file ] 返回 true。<br>-g file     检测文件是否设置了 SGID 位，如果是，则返回 true。     [ -g $file ] 返回 false。<br>-k file     检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。     [ -k $file ] 返回 false。<br>-p file     检测文件是否是具名管道，如果是，则返回 true。     [ -p $file ] 返回 false。<br>-u file     检测文件是否设置了 SUID 位，如果是，则返回 true。     [ -u $file ] 返回 false。<br>-r file     检测文件是否可读，如果是，则返回 true。     [ -r $file ] 返回 true。<br>-w file     检测文件是否可写，如果是，则返回 true。     [ -w $file ] 返回 true。<br>-x file     检测文件是否可执行，如果是，则返回 true。     [ -x $file ] 返回 true。<br>-s file     检测文件是否为空（文件大小是否大于0），不为空返回 true。     [ -s $file ] 返回 true。<br>-e file     检测文件（包括目录）是否存在，如果是，则返回 true。     [ -e $file ] 返回 true</p>
+<p>—–字符串———–</p>
+<p>单引号字符串的限制：<br>    单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；<br>    单引号字串中不能出现单引号（对单引号使用转义符后也不行）。<br>str=’this is a string’</p>
+<p>双引号的优点：<br>    双引号里可以有变量<br>    双引号里可以出现转义字符<br>your_name=’qinjx’<br>str=”Hello, I know your are \”$your_name\”! \n”</p>
+<p>拼接字符串<br>your_name=”qinjx”<br>greeting=”hello, “$your_name” !”<br>greeting_1=”hello, ${your_name} !”<br>echo $greeting $greeting_1</p>
+<p>获取字符串长度<br>string=”abcd”<br>echo ${#string} #输出 4</p>
+<p>提取子字符串<br>string=”alibaba is a great company”<br>echo ${string:1:4} #输出liba</p>
+<p>查找子字符串<br>string=”alibaba is a great company”<br>echo <code>expr index &quot;$string&quot; is</code></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/other/">其他</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://mrwrong1988.github.io/2017/04/30/其它/Shell笔记/" data-title="Shell笔记 | Mrwrong1988的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/04/30/testa/" title="testa">
+  <strong>上一篇：</strong><br/>
+  <span>
+  testa</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/04/30/其它/linux相关/"  title="linux相关">
+ <strong>下一篇：</strong><br/> 
+ <span>linux相关
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Android/" title="Android">Android<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/C-C/" title="C&amp;C++">C&amp;C++<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/react/" title="react">react<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/other/" title="其他">其他<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/network/" title="网络">网络<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.infoq.com/cn/" target="_blank" title="一个实践驱动的社区资讯站点">InfoQ</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Mrwrong in 1988. <br/>
+			Our lives stretched out ahead of us, like a perpetual sunrise.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Mrwrong1988">Mrwrong1988</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
